@@ -130,12 +130,6 @@ def greeting_animation(text=colored("Starting the Standard Python ARP Spoofer...
 
     print(table, '\n')
 
-
-def generate_request(IP, MAC, targetIP, targetMAC):
-    apr_packet = scapy.ARP(psrc=IP, hwsrc=MAC, pdst=targetIP, hwdst=targetMAC)
-    return apr_packet
-
-
 def getMAC(ip):
     arp_request = scapy.Ether(dst="ff:ff:ff:ff:ff:ff") / scapy.ARP(op=1, pdst=ip)
     answered, unanswered = scapy.srp(arp_request, timeout=2, verbose=0)
